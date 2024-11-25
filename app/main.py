@@ -4,20 +4,20 @@ import math
 
 
 class Vector:
-    def __init__(self, x: float, y: float) -> None:
-        self.x = round(x, 2)
-        self.y = round(y, 2)
+    def __init__(self, axis_x: float, axis_y: float) -> None:
+        self.x = round(axis_x, 2)
+        self.y = round(axis_y, 2)
 
     def __add__(self, other: Vector) -> Vector:
         return Vector(
-            x=self.x + other.x,
-            y=self.y + other.y
+            axis_x=self.x + other.x,
+            axis_y=self.y + other.y
         )
 
     def __sub__(self, other: Vector) -> Vector:
         return Vector(
-            x=self.x - other.x,
-            y=self.y - other.y
+            axis_x=self.x - other.x,
+            axis_y=self.y - other.y
         )
 
     def __mul__(self, other: Vector | int) -> Vector | float:
@@ -25,8 +25,8 @@ class Vector:
             return self.x * other.x + self.y * other.y
         else:
             return Vector(
-                x=self.x * other,
-                y=self.y * other
+                axis_x=self.x * other,
+                axis_y=self.y * other
             )
 
     @classmethod
@@ -60,6 +60,6 @@ class Vector:
     def rotate(self, degrees: int) -> Vector:
         radians = math.radians(degrees)
         return Vector(
-            x=self.x * math.cos(radians) - self.y * math.sin(radians),
-            y=self.x * math.sin(radians) + self.y * math.cos(radians)
+            axis_x=self.x * math.cos(radians) - self.y * math.sin(radians),
+            axis_y=self.x * math.sin(radians) + self.y * math.cos(radians)
         )
